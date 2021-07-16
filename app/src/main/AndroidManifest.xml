@@ -9,7 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Extreme_dev_game">
-        <activity android:name=".MainActivity">
+        <activity android:name=".AdicionarUsuarioActivity"></activity>
+        <activity android:name=".EliminarUsuarioActivity" />
+        <activity android:name=".InsertarUsuarioActivity" />
+        <activity android:name=".MantenerUsuarioActivity" />
+        <activity android:name=".ActualizarPreguntaActivity" />
+        <activity android:name=".EliminarPreguntaActivity" />
+        <activity android:name=".InsertarPreguntaActivity" />
+        <activity android:name=".MantenerPreguntaActivity" />
+        <activity android:name=".JugarActivity" />
+        <activity android:name=".SeleccionNivelActivity" />
+        <activity android:name=".ContactanosActivity" />
+        <activity android:name=".CentroAyudaActivity" />
+        <activity android:name=".AyudaActivity" />
+        <activity android:name=".FiltrarRankingActivity" />
+        <activity android:name=".RankingActivity" />
+        <activity android:name=".LeccionActivity" />
+        <activity android:name=".DiarioAprendizajeActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".IntroduccionActivity" />
+        <activity android:name=".RecuperarPasswordActivity" />
+        <activity android:name=".NuevoUsuarioActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
