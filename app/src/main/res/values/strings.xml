@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Extreme_dev_game</string>
+    <string name="intro">El juego Xtreme Dev Game es un juego donde aprenderás sobre
+        la programación extrema, encontraras materla de estudio y luego para poner a prueba
+        tu conocimiento resolverás preguntas e iras avanzando de nivel
+        segun la cantidad de puntos que ganes.</string>
+    <integer name="dbVersion">1</integer>
 </resources>

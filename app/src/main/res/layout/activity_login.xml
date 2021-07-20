@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -10,9 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,11 +21,11 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
                 android:text="Salir"
+                android:layout_marginRight="20dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#fc7121"
+                android:background="@drawable/boton"
                 android:fontFamily="@font/cabin"
-                android:onClick="SalirJuego"
-                />
+                android:onClick="SalirJuego" />
 
         </LinearLayout>
 
@@ -143,8 +139,6 @@
                 android:fontFamily="@font/cabin"
                 android:background="@null"
                 />
-
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

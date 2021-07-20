@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:text="Regresar"
+                android:background="@drawable/boton"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/cabin"
+                android:onClick="SalirJuego" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="170dp"
+            android:fontFamily="@font/bungeeinline"
+            android:text="XTREME DEV GAME"
+            android:textAlignment="center"
+            android:textColor="#fc7121"
+            android:textSize="60dp" />
+
+
+        <Button
+            android:id="@+id/DiarioAprendizaje"
+            android:background="@drawable/boton2"
+            android:textColor="#FC7121"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/libro"
+            android:text="Diario de aprendizaje"
+            android:onClick="VerRecetas"/>
+
+        <Button
+            android:id="@+id/Ranking"
+            android:background="@drawable/boton2"
+            android:textColor="#FC7121"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/ranking"
+            android:text="Ver ranking"
+            android:onClick="VerRecetas"/>
+
+        <Button
+            android:id="@+id/Ayuda"
+            android:background="@drawable/boton2"
+            android:textColor="#FC7121"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/ayuda"
+            android:text="Ayuda"
+            android:onClick="VerRecetas"/>
+
+        <Button
+            android:id="@+id/Jugar"
+            android:background="@drawable/boton3"
+            android:textColor="#ffffff"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textAllCaps="false"
+            android:drawableLeft="@mipmap/jugar"
+            android:text="Jugar"
+            android:onClick="IraJugar"/>
+
+    </LinearLayout>
+</ScrollView>

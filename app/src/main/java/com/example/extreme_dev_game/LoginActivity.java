@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.extreme_dev_game.datos.DbProccess;
 import com.example.extreme_dev_game.entidades.Estudiante;
 import com.example.extreme_dev_game.entidades.Usuarios;
 import com.example.extreme_dev_game.services.apiservice;
@@ -20,11 +21,16 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     EditText nombre,contra;
     Button iniciar,salir,olvido,crear_usuario;
+    DbProccess _db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         this.InicializarControles();
+       // _db = new DbProccess(getApplicationContext());
+     //   ValidarSession();
+
     }
 
     public void InicializarControles(){
@@ -34,6 +40,13 @@ public class LoginActivity extends AppCompatActivity {
         salir=(Button)findViewById(R.id.salir);
         olvido=(Button)findViewById(R.id.olvido);
         crear_usuario=(Button)findViewById(R.id.nuevo);
+    }
+
+    private void ValidarSession() {
+        Usuarios user = _db.ObtenerUsuarioSession();
+        if (user != null){
+            startActivity(new Intent(getApplicationContext(),JugarActivity.class));
+        }
     }
 
     public void IniciarSession(View v){
@@ -57,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                                             estudiante.getNombre_completo()
                                     );
 
+                           // _db.GuardarSessionUsuario(user);
 
                             Toast.makeText(getApplicationContext(),"Inicio de Sesion Exitoso",Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(),IntroduccionActivity.class));
@@ -78,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void InsertarUsuario(View v){
-        startActivity(new Intent(getApplicationContext(),InsertarUsuarioActivity.class));
+        startActivity(new Intent(getApplicationContext(),NuevoUsuarioActivity.class));
     }
 
     public void RecuperarCuenta(View v){
