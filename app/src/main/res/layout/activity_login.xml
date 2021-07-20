@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:text="Salir"
+                android:layout_gravity="center"
+                android:backgroundTint="#fc7121"
+                android:fontFamily="@font/cabin"
+                android:onClick="SalirJuego"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/bungeeinline"
+            android:text="XTREME DEV GAME"
+            android:textColor="#fc7121"
+            android:textSize="60dp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/subpantalla1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:text="Correo Electronico"
+                android:textSize="30dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:layout_marginTop="20dp"
+                />
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:background="@drawable/bordes"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cabin"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="jawline_07@utp.ac.pa"
+                android:textSize="25dp"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:text="Contraseña"
+                android:textSize="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                />
+
+            <EditText
+                android:id="@+id/txtContrasena"
+                android:background="@drawable/bordes"
+                android:textColor="#000000"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:paddingHorizontal="10sp"
+                android:fontFamily="@font/cabin"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="*********"
+                android:textSize="25dp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:imeOptions="actionDone"/>
+
+            <Button
+                android:id="@+id/iniciar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iniciar"
+                android:onClick="IniciarSession"
+                android:layout_gravity="center"
+                android:backgroundTint="#fc7121"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/cabin"
+                />
+
+            <Button
+                android:id="@+id/nuevo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuevo Usuario"
+                android:textColor="#000"
+                android:onClick="InsertarUsuario"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:fontFamily="@font/cabin"
+                android:background="@null"
+                />
+            <Button
+                android:id="@+id/olvido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Olvido de Contraseña"
+                android:textColor="#000"
+                android:onClick="RecuperarCuenta"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:fontFamily="@font/cabin"
+                android:background="@null"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
