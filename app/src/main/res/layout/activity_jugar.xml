@@ -1,44 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".JugarActivity">
-
-    <TextView
-        android:text="Extreme dev game"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"/>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:text="TIPO"
-            android:id="@+id/lblTipoPregunta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/lblNivel"
-            android:text="NIVEL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="PREGUNTA"
-            android:id="@+id/lblPregunta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/renderRespuestas"
+            android:layout_width="118dp"
+            android:layout_height="67dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                android:onClick="SalirJuego"
+                android:text="Regresar" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical"
+            android:background="@drawable/subpantalla2">
+
+            <TextView
+                android:textAlignment="center"
+                android:text="Tipo de pregunta"
+                android:fontFamily="@font/cabin"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:id="@+id/lblTipoPregunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/lblNivel"
+                android:text="NIVEL"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:fontFamily="@font/cabin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textAlignment="center"
+                android:text="PREGUNTA"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:layout_marginTop="90dp"
+                android:fontFamily="@font/cabin"
+                android:id="@+id/lblPregunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/renderRespuestas"
+            android:orientation="horizontal"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/BFalso"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="FALSO"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:fontFamily="@font/cabin"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/rojo_falso"/>
+            <Button
+                android:visibility="gone"
+                android:id="@+id/BVerdadero"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:fontFamily="@font/cabin"
+                android:text="VERDADERO"
+                android:backgroundTint="@color/verde_verdadero"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

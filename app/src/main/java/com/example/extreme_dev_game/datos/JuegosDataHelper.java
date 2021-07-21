@@ -18,7 +18,6 @@ public class JuegosDataHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(partidaTable);
         db.execSQL(userTable);
-
     }
 
     @Override

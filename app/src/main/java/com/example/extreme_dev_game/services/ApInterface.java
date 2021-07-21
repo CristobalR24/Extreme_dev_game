@@ -32,7 +32,7 @@ public interface ApInterface {
     Call<Integer> postRegistrarPartida(@Body PartidaRequest partida);
 
     @GET("api.php?ep=preguntas")
-    Call<List<Preguntas>> getPreguntas(@Query("j") int juego);
+    Call<List<Preguntas>> getPreguntas(@Query("j") int juego,@Query("n") int nivel);
 
     @GET("api.php?ep=posiciones")
     Call<List<Tabla>> getAllTable();

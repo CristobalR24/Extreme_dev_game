@@ -41,10 +41,11 @@ public class JugarActivity extends AppCompatActivity {
 
     LinearLayout lnRender;
     TextView nivel,tipo,pregunta;
+    Button verdad,falso;
 
     DbProccess _db;
     int _numPartida = 0;
-    String _jugador = "prueba";
+    String _jugador = "nombre prueba";
     String _juego = "Extreme dev game";
     int _juegoId = 5;
     int _nivel = 1;
@@ -58,12 +59,12 @@ public class JugarActivity extends AppCompatActivity {
 
         _db = new DbProccess(getApplicationContext());
 
-        /*Intent i = getIntent();
+        Intent i = getIntent();
         _nivel=i.getIntExtra("nivel",0);
 
         /*_juego = i.getStringExtra("Juego");
-        _juegoId = i.getIntExtra("JuegoID",0);
-        _numPartida = _db.ObtenerSiguientePartida(_juego);*/
+        _juegoId = i.getIntExtra("JuegoID",0);*/
+        _numPartida = _db.ObtenerSiguientePartida("Extreme dev game");
 
         //ObtenerUsuarioSession();
 
@@ -77,7 +78,7 @@ public class JugarActivity extends AppCompatActivity {
     }
 
     private void ObtenerPreguntas() {
-        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5);
+        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,_nivel);
         response.enqueue(new Callback<List<Preguntas>>() {
             @Override
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
@@ -105,6 +106,9 @@ public class JugarActivity extends AppCompatActivity {
         nivel = (TextView)findViewById(R.id.lblNivel);
         tipo = (TextView)findViewById(R.id.lblTipoPregunta);
         pregunta = (TextView)findViewById(R.id.lblPregunta);
+
+        verdad=findViewById(R.id.BVerdadero);
+        falso=findViewById(R.id.BFalso);
     }
 
     private void RenderPrimeraPregunta(){
@@ -133,13 +137,15 @@ public class JugarActivity extends AppCompatActivity {
             pregunta.setText(_preguntaActual.getPregunta());
             tipo.setText(_preguntaActual.getTipo());
 
+            RenderPreguntaVF(_preguntaActual);
+/*
             if (_preguntaActual.getTipo_pregunta_id().equals("2")){
                 RenderPreguntaOpcionMultiple(_preguntaActual);
             }else if(_preguntaActual.getTipo_pregunta_id().equals("3")){
                 RenderPreguntaVF(_preguntaActual);
             }else if(_preguntaActual.getTipo_pregunta_id().equals("4")){
                 RenderPreguntaMejorOpcion(_preguntaActual);
-            }
+            }*/
         }
     }
 
@@ -190,20 +196,25 @@ public class JugarActivity extends AppCompatActivity {
     }
 
     private void RenderPreguntaVF(Preguntas pregunta) {
-        LinearLayout.LayoutParams params =
+        /*LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        Button verdadero = new Button(getApplicationContext());
+        /*Button verdadero = new Button(getApplicationContext());
         Button falso = new Button(getApplicationContext());
 
-        verdadero.setLayoutParams(params);
+       /* verdadero.setLayoutParams(params);
         falso.setLayoutParams(params);
+
         verdadero.setBackgroundColor(ContextCompat.getColor(this,R.color.verde_verdadero));
         falso.setBackgroundColor(ContextCompat.getColor(this,R.color.rojo_falso));
-        verdadero.setText("VERDADERO");
-        falso.setText("FALSO");
 
-        verdadero.setOnClickListener(new View.OnClickListener() {
+        verdadero.setText("VERDADERO");
+        falso.setText("FALSO");*/
+
+        verdad.setVisibility(View.VISIBLE);
+        falso.setVisibility(View.VISIBLE);
+
+        verdad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -247,8 +258,9 @@ public class JugarActivity extends AppCompatActivity {
             }
         });
 
-        lnRender.addView(verdadero);
-        lnRender.addView(falso);
+        lnRender.removeAllViews();
+         lnRender.addView(verdad);
+         lnRender.addView(falso);
     }
 
     private void RenderPreguntaOpcionMultiple(Preguntas pregunta) {
