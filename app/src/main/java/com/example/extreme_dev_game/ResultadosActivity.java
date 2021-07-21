@@ -35,6 +35,7 @@ public class ResultadosActivity extends AppCompatActivity {
         int partida = getIntent().getIntExtra("Partida",0);
 
         InicializarControles();
+        LoadListView(partida);
         MapearCampos();
         GuardarPartidaApi(_partidas);
     }
@@ -77,12 +78,12 @@ public class ResultadosActivity extends AppCompatActivity {
     }
 
     private void MapearCampos() {
-        nivel.setText(_partidas.get(0).getNivel());
-        juego.setText(_partidas.get(0).getJuego());
-        jugador.setText(_partidas.get(0).getJugador());
-        fecha.setText(_partidas.get(0).getFecha());
-        puntaje.setText(Integer.toString(ObtenerPuntaje(_partidas)));
-        partida.setText(Integer.toString(_partidas.get(0).getPartida()));
+        nivel.setText("Nivel: "+_partidas.get(0).getNivel());
+        juego.setText("Juego: "+_partidas.get(0).getJuego());
+        jugador.setText("Jugador: "+_partidas.get(0).getJugador());
+        fecha.setText("Fecha: "+_partidas.get(0).getFecha());
+        puntaje.setText("Puntaje: "+Integer.toString(ObtenerPuntaje(_partidas)));
+        partida.setText("Partida: "+Integer.toString(_partidas.get(0).getPartida()));
     }
 
     private int ObtenerPuntaje(List<Partida> partidas){
@@ -94,10 +95,13 @@ public class ResultadosActivity extends AppCompatActivity {
         return puntaje;
     }
 
+    private void LoadListView(int partida) {
+        DbProccess db = new DbProccess(getApplicationContext());
+        _partidas = db.ObtenerPartidaById(partida);
+    }
 
 
-    private void InicializarControles(){
-
+    private void InicializarControles() {
         nivel = (TextView)findViewById(R.id.txtNivel);
         juego = (TextView)findViewById(R.id.txtJuego);
         jugador = (TextView)findViewById(R.id.txtJugador);

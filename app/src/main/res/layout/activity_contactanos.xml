@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/fondo"
     android:layout_height="match_parent">
 
@@ -41,30 +41,29 @@
             android:textColor="#fc7121"
             android:textSize="40sp" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="370dp"
             android:layout_height="400dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical"
+            android:paddingVertical="10dp"
             android:background="@drawable/subpantalla3">
-
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
                 android:text="LUIS SALDAÑA"/>
-
-
             <TextView
-                android:id="@+id/txtJuego"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
@@ -74,59 +73,271 @@
                 android:textColor="#000"
                 android:textAlignment="center"
                 android:text="+507 6553-1715"/>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="luis7676@gmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
 
             <TextView
-                android:id="@+id/txtNivel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:text="Total de Acierto:"/>
-
+                android:textAlignment="center"
+                android:text="ANGEL CARRILLO"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6264-7923"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="angelcarrillo27@hotmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
 
             <TextView
-                android:id="@+id/txtFecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:text="Nivel actual:"/>
-
+                android:textAlignment="center"
+                android:text="WENCERS CASTILLO"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6319-4033"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="mathewscastillo40@gmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
 
             <TextView
-                android:id="@+id/txtPartida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:text="Puntaje"/>
-
+                android:textAlignment="center"
+                android:text="ELIANYS GONZALEZ"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6504-8900"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="elianysigc@gmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
 
             <TextView
-                android:id="@+id/txtPuntos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cabin"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:text="Partida"/>
+                android:textAlignment="center"
+                android:text="KARLA QUIEL"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6883-5947"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="kquiel@outlook.es"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="CRISTOBAL RODRIGUEZ"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6837-4552"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="mathewscastillo40@gmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="ALBENIZ VARGAS"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6637-9019"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="---@gmail.com"/>
+            <View android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="#6EC487" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="ALBERTO WONG"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:text="+507 6006-9348"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="14sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:text="---@gmail.com"/>
         </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 </ScrollView>
