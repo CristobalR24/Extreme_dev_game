@@ -195,7 +195,8 @@ public class JugarActivity extends AppCompatActivity {
 
         verdadero.setLayoutParams(params);
         falso.setLayoutParams(params);
-
+        verdadero.setBackgroundColor(0x6bc383);
+        falso.setBackgroundColor(0xfb5c1c);
         verdadero.setText("VERDADERO");
         falso.setText("FALSO");
 
