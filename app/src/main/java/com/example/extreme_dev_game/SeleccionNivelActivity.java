@@ -2,6 +2,7 @@ package com.example.extreme_dev_game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,4 +17,11 @@ public class SeleccionNivelActivity extends AppCompatActivity {
     public void RegresarMenu(View view) {
         finish();
     }
+
+    public void IraBasico(View view) {
+        Intent i= new Intent(this.getApplicationContext(),JugarActivity.class);
+        i.putExtra("nivel",1);
+        startActivity(i);
+    }
+
 }

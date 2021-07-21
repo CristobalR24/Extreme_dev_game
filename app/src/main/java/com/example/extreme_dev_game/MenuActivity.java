@@ -19,6 +19,10 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void IraJugar(View view) {
-        startActivity(new Intent(getApplicationContext(),JugarActivity.class));
+        startActivity(new Intent(getApplicationContext(),SeleccionNivelActivity.class));
+    }
+
+    public void IraAyuda(View view) {
+        startActivity(new Intent(getApplicationContext(),AyudaActivity.class));
     }
 }

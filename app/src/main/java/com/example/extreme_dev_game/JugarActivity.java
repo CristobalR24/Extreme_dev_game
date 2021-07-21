@@ -2,6 +2,7 @@ package com.example.extreme_dev_game;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class JugarActivity extends AppCompatActivity {
     String _jugador = "prueba";
     String _juego = "Extreme dev game";
     int _juegoId = 5;
+    int _nivel = 1;
 
     List<String> _selectedCheckboxs = new ArrayList<>();
 
@@ -57,7 +59,9 @@ public class JugarActivity extends AppCompatActivity {
         _db = new DbProccess(getApplicationContext());
 
         /*Intent i = getIntent();
-        _juego = i.getStringExtra("Juego");
+        _nivel=i.getIntExtra("nivel",0);
+
+        /*_juego = i.getStringExtra("Juego");
         _juegoId = i.getIntExtra("JuegoID",0);
         _numPartida = _db.ObtenerSiguientePartida(_juego);*/
 
@@ -142,8 +146,7 @@ public class JugarActivity extends AppCompatActivity {
     private void RenderPreguntaMejorOpcion(Preguntas pregunta) {
 
         RadioGroup group = new RadioGroup(getApplicationContext());
-        LinearLayout.LayoutParams params =
-                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         group.setLayoutParams(params);
 
@@ -195,8 +198,8 @@ public class JugarActivity extends AppCompatActivity {
 
         verdadero.setLayoutParams(params);
         falso.setLayoutParams(params);
-        verdadero.setBackgroundColor(0x6bc383);
-        falso.setBackgroundColor(0xfb5c1c);
+        verdadero.setBackgroundColor(ContextCompat.getColor(this,R.color.verde_verdadero));
+        falso.setBackgroundColor(ContextCompat.getColor(this,R.color.rojo_falso));
         verdadero.setText("VERDADERO");
         falso.setText("FALSO");
 
@@ -207,7 +210,7 @@ public class JugarActivity extends AppCompatActivity {
                 int puntaje = 0;
                 String respuestas = "";
 
-                if (pregunta.getRespuestas().get(0).getRespuesta().equals("1")){
+                if (pregunta.getRespuestas().get(0).getRespuesta().equals("Si")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "1";
                     Toast.makeText(getApplicationContext(),"CORRECTOOOOOOO", Toast.LENGTH_LONG).show();
@@ -229,7 +232,7 @@ public class JugarActivity extends AppCompatActivity {
                 int puntaje = 0;
                 String respuestas = "";
 
-                if (pregunta.getRespuestas().get(0).getRespuesta().equals("0")){
+                if (pregunta.getRespuestas().get(0).getRespuesta().equals("No")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "0";
                     Toast.makeText(getApplicationContext(),"CORRECTOOOOOOO", Toast.LENGTH_LONG).show();

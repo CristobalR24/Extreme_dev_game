@@ -35,7 +35,7 @@
             android:layout_height="76dp"
             android:layout_gravity="center"
             android:fontFamily="@font/bungeeinline"
-            android:text="Instroduccion"
+            android:text="Introducción"
             android:textAlignment="center"
             android:textColor="#fc7121"
             android:textSize="40sp" />

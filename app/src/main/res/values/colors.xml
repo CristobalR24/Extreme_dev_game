@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="naranja">#F55634</color>
+    <color name="verde_verdadero">#6bc383</color>
+    <color name="rojo_falso">#fb5c1c</color>
 </resources>

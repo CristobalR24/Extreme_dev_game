@@ -91,7 +91,7 @@
             android:textAllCaps="false"
             android:drawableLeft="@mipmap/ayuda"
             android:text="Ayuda"
-            android:onClick="VerRecetas"/>
+            android:onClick="IraAyuda"/>
 
         <Button
             android:id="@+id/Jugar"
