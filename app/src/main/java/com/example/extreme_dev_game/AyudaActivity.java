@@ -21,4 +21,8 @@ public class AyudaActivity extends AppCompatActivity {
     public void IraContacto(View view) {
         startActivity(new Intent(getApplicationContext(),ContactanosActivity.class));
     }
+
+    public void IraCentroAyuda(View view) {
+        startActivity(new Intent(getApplicationContext(),CentroAyudaActivity.class));
+    }
 }

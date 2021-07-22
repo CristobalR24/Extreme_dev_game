@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 
 public class IntroduccionActivity extends AppCompatActivity {
+    String _user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduccion);
+
+        Intent i = getIntent();
+        _user=i.getStringExtra("usuario");
     }
 
     public void SalirJuego(View view) {
@@ -19,7 +23,10 @@ public class IntroduccionActivity extends AppCompatActivity {
     }
 
     public void IrAMenu(View view) {
-        startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+        Intent i = new Intent(getApplicationContext(),MenuActivity.class);
+        i.putExtra("usuario",_user);
+        startActivity(i);
+        //startActivity(new Intent(getApplicationContext(),MenuActivity.class));
         finish();
     }
 }

@@ -45,7 +45,7 @@ public class JugarActivity extends AppCompatActivity {
 
     DbProccess _db;
     int _numPartida = 0;
-    String _jugador = "nombre prueba";
+    String _jugador = "";
     String _juego = "Extreme dev game";
     int _juegoId = 5;
     int _nivel = 1;
@@ -60,6 +60,7 @@ public class JugarActivity extends AppCompatActivity {
         _db = new DbProccess(getApplicationContext());
 
         Intent i = getIntent();
+        _jugador=i.getStringExtra("usuario");
         _nivel=i.getIntExtra("nivel",0);
 
         /*_juego = i.getStringExtra("Juego");
@@ -307,7 +308,6 @@ public class JugarActivity extends AppCompatActivity {
                         }
                     }
                 }
-
                 GuardarRespuesta(pregunta,respuestas,puntaje);
 
                 lnRender.removeAllViews();

@@ -55,7 +55,7 @@
             android:textAllCaps="false"
             android:drawableLeft="@mipmap/libro"
             android:text="Diario de aprendizaje"
-            android:onClick="VerRecetas"/>
+            android:onClick="VerLecciones"/>
 
         <Button
             android:id="@+id/Ranking"
@@ -72,8 +72,7 @@
             android:fontFamily="@font/cabin"
             android:textAllCaps="false"
             android:drawableLeft="@mipmap/ranking"
-            android:text="Ver ranking"
-            android:onClick="VerRecetas"/>
+            android:text="Ver ranking" />
 
         <Button
             android:id="@+id/Ayuda"

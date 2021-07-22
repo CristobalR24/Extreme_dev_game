@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         this.InicializarControles();
        // _db = new DbProccess(getApplicationContext());
-     //   ValidarSession();
+       //   ValidarSession();
 
     }
 
@@ -73,7 +73,10 @@ public class LoginActivity extends AppCompatActivity {
                            // _db.GuardarSessionUsuario(user);
 
                             Toast.makeText(getApplicationContext(),"Inicio de Sesion Exitoso",Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(),IntroduccionActivity.class));
+                            //startActivity(new Intent(getApplicationContext(),IntroduccionActivity.class));
+                            Intent i = new Intent(getApplicationContext(),IntroduccionActivity.class);
+                            i.putExtra("usuario",nombre.getText().toString());
+                            startActivity(i);
                         }
                     }else {
                         Toast.makeText(getApplicationContext(),"no response",Toast.LENGTH_LONG).show();

@@ -109,4 +109,8 @@ public class ResultadosActivity extends AppCompatActivity {
         puntaje = (TextView)findViewById(R.id.txtPuntos);
         partida = (TextView)findViewById(R.id.txtPartida);
     }
+
+    public void RegresarSeleccion(View view) {
+        startActivity(new Intent(getApplicationContext(),SeleccionNivelActivity.class));
+    }
 }
