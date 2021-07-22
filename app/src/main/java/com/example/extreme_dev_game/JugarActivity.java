@@ -78,7 +78,7 @@ public class JugarActivity extends AppCompatActivity {
     }
 
     private void ObtenerPreguntas() {
-        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,_nivel);
+        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,1);
         response.enqueue(new Callback<List<Preguntas>>() {
             @Override
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
@@ -339,5 +339,9 @@ public class JugarActivity extends AppCompatActivity {
         }catch (Exception e){
             int x = 1;
         }
+    }
+
+    public void Salir_Juego(View view) {
+        finish();
     }
 }

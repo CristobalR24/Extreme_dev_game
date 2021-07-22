@@ -25,7 +25,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/boton3"
                 android:fontFamily="@font/cabin"
-                android:onClick="SalirJuego"
+                android:onClick="Salir_Juego"
                 android:text="Regresar" />
 
         </LinearLayout>

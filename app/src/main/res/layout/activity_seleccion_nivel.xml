@@ -42,6 +42,7 @@
             android:orientation="vertical">
 
             <Button
+                android:textColor="@color/black"
                 android:id="@+id/lvlbasic"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
@@ -54,6 +55,7 @@
                 />
             <Button
                 android:id="@+id/lvlinter"
+                android:textColor="@color/black"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Nivel Intermedio"
@@ -65,6 +67,7 @@
                 />
             <Button
                 android:id="@+id/lvlavan"
+                android:textColor="@color/black"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Nivel Avanzado"

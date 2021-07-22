@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void SalirJuego(View view) {
+    public void SalirdeJuego(View view) {
         finish();
         System.exit(0);
     }

@@ -25,7 +25,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/boton"
                 android:fontFamily="@font/cabin"
-                android:onClick="SalirJuego" />
+                android:onClick="SalirdeJuego" />
 
         </LinearLayout>
 

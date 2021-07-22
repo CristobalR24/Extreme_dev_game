@@ -20,5 +20,6 @@ public class IntroduccionActivity extends AppCompatActivity {
 
     public void IrAMenu(View view) {
         startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+        finish();
     }
 }
