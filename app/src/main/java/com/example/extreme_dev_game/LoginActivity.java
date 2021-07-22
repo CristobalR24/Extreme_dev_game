@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void SalirdeJuego(View view) {
-        finish();
+        finishAffinity();
         System.exit(0);
     }
 }

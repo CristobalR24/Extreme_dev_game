@@ -68,7 +68,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:text="@string/privacidad" />
             <View android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -95,14 +95,13 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:text="@string/ranking"
                 />
             <View android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
                 android:background="#6EC487" />
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -125,7 +124,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:text="@string/juego" />
             <View android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -153,7 +152,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:text="@string/preguntas"
                 />
             <View android:layout_width="match_parent"
@@ -183,7 +182,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:text="@string/cuenta"
                 />
 

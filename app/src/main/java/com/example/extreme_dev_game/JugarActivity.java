@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ import com.google.android.material.timepicker.TimeFormat;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -52,6 +55,9 @@ public class JugarActivity extends AppCompatActivity {
 
     List<String> _selectedCheckboxs = new ArrayList<>();
 
+    MediaPlayer mediaPlayer;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +69,10 @@ public class JugarActivity extends AppCompatActivity {
         _jugador=i.getStringExtra("usuario");
         _nivel=i.getIntExtra("nivel",0);
 
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.summer_bensound_rf);
+
+        mediaPlayer.start();
+
         /*_juego = i.getStringExtra("Juego");
         _juegoId = i.getIntExtra("JuegoID",0);*/
         _numPartida = _db.ObtenerSiguientePartida("Extreme dev game");
@@ -73,9 +83,11 @@ public class JugarActivity extends AppCompatActivity {
         ObtenerPreguntas();
     }
 
-    private void ObtenerUsuarioSession() {
-        Usuarios user = _db.ObtenerUsuarioSession();
-        _jugador = user.getNombre();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+        mediaPlayer.release();
     }
 
     private void ObtenerPreguntas() {
@@ -85,6 +97,7 @@ public class JugarActivity extends AppCompatActivity {
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
                 if (response.isSuccessful()){
                     _preguntas = response.body();
+                    Collections.shuffle(_preguntas);
                     if (_preguntas.size() > 0){
 
                         nivel.setText(_preguntas.get(0).getNivel());
