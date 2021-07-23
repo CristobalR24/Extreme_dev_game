@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/puntajes">
+
+    <TextView
+        android:id="@+id/lslblPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:text="1"/>
+
+
+    <TextView
+        android:id="@+id/lslblJuego"
+        android:layout_toRightOf="@id/lslblPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:maxLines="20"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:padding="10dp"
+        android:scrollHorizontally="false"
+        android:text="Juego"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lslblJugador"
+        android:layout_below="@id/lslblPartida"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:text="Jugador"/>
+
+    <TextView
+        android:id="@+id/lslblNivel"
+        android:layout_below="@id/lslblJuego"
+        android:layout_toRightOf="@id/lslblJugador"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:text="Nivel"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lslblFecha"
+        android:layout_below="@id/lslblJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:text="Fecha"/>
+
+    <TextView
+        android:id="@+id/lslblPuntaje"
+        android:layout_toRightOf="@id/lslblFecha"
+        android:layout_below="@id/lslblNivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:text="Puntaje"/>
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

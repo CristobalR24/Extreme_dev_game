@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RankingActivity">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                android:onClick="SalirJuego"
+                android:text="Regresar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungeeinline"
+            android:text="Ranking"
+            android:textAlignment="center"
+            android:textColor="#fc7121"
+            android:textSize="40sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/FiltroCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="40dp"
+                android:paddingHorizontal="15dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                android:textAllCaps="false"
+                android:text="Filtrar por cédula" />
+
+
+            <Button
+                android:id="@+id/FiltroGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:paddingHorizontal="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                android:textAllCaps="false"
+                android:text="Filtrar por grupo"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/ListaPuntos"
+            android:layout_width="match_parent"
+            android:layout_height="435dp" />
+
+    </LinearLayout>
+</ScrollView>

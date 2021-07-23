@@ -39,6 +39,8 @@ public class ResultadosActivity extends AppCompatActivity {
         MapearCampos();
         GuardarPartidaApi(_partidas);
     }
+    @Override
+    public void onBackPressed() { /*no hacer nada*/}
 
     private void GuardarPartidaApi(List<Partida> partidas) {
         PartidaRequest request = new PartidaRequest();

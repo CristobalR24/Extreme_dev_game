@@ -72,14 +72,15 @@ public class LoginActivity extends AppCompatActivity {
 
                            // _db.GuardarSessionUsuario(user);
 
-                            Toast.makeText(getApplicationContext(),"Inicio de Sesion Exitoso",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(),"Inicio de Sesion Exitoso",Toast.LENGTH_LONG).show();
                             //startActivity(new Intent(getApplicationContext(),IntroduccionActivity.class));
                             Intent i = new Intent(getApplicationContext(),IntroduccionActivity.class);
-                            i.putExtra("usuario",nombre.getText().toString());
+                            i.putExtra("usuario",user.getNombre());
                             startActivity(i);
                         }
+                        else{Toast.makeText(getApplicationContext(),"Correo o contraseñas incorrectos",Toast.LENGTH_LONG).show();}
                     }else {
-                        Toast.makeText(getApplicationContext(),"no response",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"error en el servidor",Toast.LENGTH_LONG).show();
                         int x = 1;
                     }
                 }
