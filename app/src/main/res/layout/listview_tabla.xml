@@ -3,47 +3,47 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@drawable/puntajes">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/lslblPartida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/cabin"
+        android:padding="10dp"
+        android:text="Numero de partida"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:padding="10dp"
-        android:text="1"/>
+        android:layout_weight="1"/>
 
 
     <TextView
         android:id="@+id/lslblJuego"
-        android:layout_toRightOf="@id/lslblPartida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:fontFamily="@font/cabin"
-        android:textColor="@color/black"
-        android:maxLines="20"
+        android:layout_toRightOf="@id/lslblPartida"
         android:layout_weight="1"
         android:ellipsize="none"
+        android:fontFamily="@font/cabin"
+        android:maxLines="20"
         android:padding="10dp"
         android:scrollHorizontally="false"
-        android:text="Juego"/>
+        android:text="Nombre del juego"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+    </LinearLayout>
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/lslblJugador"
         android:layout_below="@id/lslblPartida"
@@ -66,14 +66,12 @@
         android:textSize="15dp"
         android:padding="10dp"
         android:text="Nivel"/>
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/lslblFecha"
         android:layout_below="@id/lslblJugador"
@@ -97,5 +95,6 @@
         android:padding="10dp"
         android:text="Puntaje"/>
     </LinearLayout>
-    </LinearLayout>
+
+
 </LinearLayout>

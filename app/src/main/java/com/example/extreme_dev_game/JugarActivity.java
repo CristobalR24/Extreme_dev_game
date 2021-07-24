@@ -144,7 +144,7 @@ public class JugarActivity extends AppCompatActivity {
     private void RenderPregunta(Preguntas preguntaAnterior){
         int indiceActual = _preguntas.indexOf(preguntaAnterior);
 
-        if(indiceActual == _preguntas.size() - 1){ //si se acabaron las preguntas
+        if(indiceActual == 9){ //si se acabaron las preguntas 0 a 9
             Intent i = new Intent(getApplicationContext(),ResultadosActivity.class);
             i.putExtra("Partida",_numPartida);
             startActivity(i);

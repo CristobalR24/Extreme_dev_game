@@ -25,7 +25,7 @@
                 android:textColor="#ffffff"
                 android:background="@drawable/boton3"
                 android:fontFamily="@font/cabin"
-                android:onClick="SalirJuego"
+                android:onClick="RankingSalir"
                 android:text="Regresar" />
 
         </LinearLayout>

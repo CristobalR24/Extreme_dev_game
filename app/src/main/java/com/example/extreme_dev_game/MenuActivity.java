@@ -37,4 +37,8 @@ public class MenuActivity extends AppCompatActivity {
     public void VerLecciones(View view) {
         startActivity(new Intent(getApplicationContext(),LeccionActivity.class));
     }
+
+    public void IraVerRanking(View view) {
+        startActivity(new Intent(getApplicationContext(),RankingActivity.class));
+    }
 }

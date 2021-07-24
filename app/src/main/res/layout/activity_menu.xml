@@ -71,6 +71,7 @@
             android:textSize="20sp"
             android:fontFamily="@font/cabin"
             android:textAllCaps="false"
+            android:onClick="IraVerRanking"
             android:drawableLeft="@mipmap/ranking"
             android:text="Ver ranking" />
 
