@@ -4,6 +4,7 @@ package com.example.extreme_dev_game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class JugarActivity extends AppCompatActivity {
     DbProccess _db;
     int _numPartida = 0;
     String _jugador = "";
+    String retro="XD";
     String _juego = "Extreme dev game";
     int _juegoId = 5;
     int _nivel = 1;
@@ -72,6 +74,7 @@ public class JugarActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.summer_bensound_rf);
 
         mediaPlayer.start();
+        mediaPlayer.setLooping(true); //musica en loop
 
         /*_juego = i.getStringExtra("Juego");
         _juegoId = i.getIntExtra("JuegoID",0);*/
@@ -91,7 +94,7 @@ public class JugarActivity extends AppCompatActivity {
     }
 
     private void ObtenerPreguntas() {
-        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,1);
+        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,_nivel);
         response.enqueue(new Callback<List<Preguntas>>() {
             @Override
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
@@ -141,7 +144,7 @@ public class JugarActivity extends AppCompatActivity {
     private void RenderPregunta(Preguntas preguntaAnterior){
         int indiceActual = _preguntas.indexOf(preguntaAnterior);
 
-        if(indiceActual == _preguntas.size() - 1){
+        if(indiceActual == _preguntas.size() - 1){ //si se acabaron las preguntas
             Intent i = new Intent(getApplicationContext(),ResultadosActivity.class);
             i.putExtra("Partida",_numPartida);
             startActivity(i);
@@ -210,43 +213,37 @@ public class JugarActivity extends AppCompatActivity {
     }
 
     private void RenderPreguntaVF(Preguntas pregunta) {
-        /*LinearLayout.LayoutParams params =
-                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        /*Button verdadero = new Button(getApplicationContext());
-        Button falso = new Button(getApplicationContext());
-
-       /* verdadero.setLayoutParams(params);
-        falso.setLayoutParams(params);
-
-        verdadero.setBackgroundColor(ContextCompat.getColor(this,R.color.verde_verdadero));
-        falso.setBackgroundColor(ContextCompat.getColor(this,R.color.rojo_falso));
-
-        verdadero.setText("VERDADERO");
-        falso.setText("FALSO");*/
 
         verdad.setVisibility(View.VISIBLE);
         falso.setVisibility(View.VISIBLE);
 
+        //System.out.println(pregunta.getRespuestas().get(0).getRespuesta()+"\n");
+        //System.out.println(pregunta.getRespuestas().get(0).getRetroalimentacion()+"\n");
+
         verdad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 int puntaje = 0;
                 String respuestas = "";
+
 
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("Si")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "1";
-                    Toast.makeText(getApplicationContext(),"CORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Respuesta correcta", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
                     respuestas = "0";
+                    retro=pregunta.getRespuestas().get(0).getRetroalimentacion();
+                    showCustomDialog(retro);
+
                 }
                 GuardarRespuesta(pregunta,respuestas,puntaje);
 
                 lnRender.removeAllViews();
                 RenderPregunta(pregunta);
+                lnRender.addView(verdad); //arriba
+                lnRender.addView(falso);
             }
         });
 
@@ -260,21 +257,50 @@ public class JugarActivity extends AppCompatActivity {
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("No")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "0";
-                    Toast.makeText(getApplicationContext(),"CORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Respuesta Correcta", Toast.LENGTH_LONG).show();
                 }else{
                     respuestas = "1";
-                    Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    retro= pregunta.getRespuestas().get(0).getRetroalimentacion();
+                    showCustomDialog(retro);
                 }
                 GuardarRespuesta(pregunta,respuestas,puntaje);
 
                 lnRender.removeAllViews();
                 RenderPregunta(pregunta);
+                lnRender.addView(verdad); //arriba
+                lnRender.addView(falso);
             }
         });
+        
+    }
 
-        lnRender.removeAllViews();
-         lnRender.addView(verdad);
-         lnRender.addView(falso);
+    public void showCustomDialog(String retro) {
+        TextView retroalimento,anima;
+        Button ok;
+
+        Dialog dialog = new Dialog(JugarActivity.this);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.setContentView(R.layout.estilo_dialog);
+        anima=dialog.findViewById(R.id.animo);
+        retroalimento=dialog.findViewById(R.id.retroalimentacion);
+        ok=dialog.findViewById(R.id.retro_ok);
+
+        List<String> texto = new ArrayList<>(List.of("¡Animo tu puedes hacerlo!",
+                "¡no te rindas!","¡estamos aprendiendo!","¡equivocarse es parte del aprendizaje!",
+                "no hay nada que enseñe más que equivocarse","¡sigue adelante!",
+                "¡una experiencia nunca es un fracaso!","¡Sigamos aprendiendo!"));
+        Collections.shuffle(texto);
+
+        retroalimento.setText(retro);
+        anima.setText(texto.get(0));
+        dialog.show();
+        ok.setOnClickListener(v ->{
+            dialog.dismiss();
+        });
+
     }
 
     private void RenderPreguntaOpcionMultiple(Preguntas pregunta) {
