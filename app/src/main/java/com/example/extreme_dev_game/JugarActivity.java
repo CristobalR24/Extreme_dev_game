@@ -50,14 +50,17 @@ public class JugarActivity extends AppCompatActivity {
     DbProccess _db;
     int _numPartida = 0;
     String _jugador = "";
-    String retro="XD";
+    String retro="";
     String _juego = "Extreme dev game";
     int _juegoId = 5;
     int _nivel = 1;
+    int c_respuestas=0;
 
     List<String> _selectedCheckboxs = new ArrayList<>();
 
     MediaPlayer mediaPlayer;
+    MediaPlayer buena;
+    MediaPlayer error;
 
 
     @Override
@@ -71,30 +74,39 @@ public class JugarActivity extends AppCompatActivity {
         _jugador=i.getStringExtra("usuario");
         _nivel=i.getIntExtra("nivel",0);
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.summer_bensound_rf);
+        //mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.summer_bensound_rf);
+        buena = MediaPlayer.create(getApplicationContext(),R.raw.bonus_collect);
+        error = MediaPlayer.create(getApplicationContext(),R.raw.answer_fail);
 
-        mediaPlayer.start();
-        mediaPlayer.setLooping(true); //musica en loop
+        //mediaPlayer.start();
+        //mediaPlayer.setLooping(true); //musica en loop
 
         /*_juego = i.getStringExtra("Juego");
         _juegoId = i.getIntExtra("JuegoID",0);*/
         _numPartida = _db.ObtenerSiguientePartida("Extreme dev game");
 
-        //ObtenerUsuarioSession();
-
         InicializarControles();
         ObtenerPreguntas();
     }
 
+
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer=MediaPlayer.create(getApplicationContext(),R.raw.summer_bensound_rf);
+        mediaPlayer.setLooping(true); //musica en loop
+        mediaPlayer.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
         mediaPlayer.stop();
         mediaPlayer.release();
     }
 
     private void ObtenerPreguntas() {
-        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(5,_nivel);
+        Call<List<Preguntas>> response = apiservice.getApiService().getPreguntas(_juegoId,_nivel);
         response.enqueue(new Callback<List<Preguntas>>() {
             @Override
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
@@ -102,7 +114,6 @@ public class JugarActivity extends AppCompatActivity {
                     _preguntas = response.body();
                     Collections.shuffle(_preguntas);
                     if (_preguntas.size() > 0){
-
                         nivel.setText(_preguntas.get(0).getNivel());
                         _preguntaActual = _preguntas.get(0);
                         RenderPrimeraPregunta();
@@ -146,6 +157,7 @@ public class JugarActivity extends AppCompatActivity {
 
         if(indiceActual == 9){ //si se acabaron las preguntas 0 a 9
             Intent i = new Intent(getApplicationContext(),ResultadosActivity.class);
+            i.putExtra("Cantidad",c_respuestas);
             i.putExtra("Partida",_numPartida);
             startActivity(i);
         }else{
@@ -154,15 +166,13 @@ public class JugarActivity extends AppCompatActivity {
             pregunta.setText(_preguntaActual.getPregunta());
             tipo.setText(_preguntaActual.getTipo());
 
-            RenderPreguntaVF(_preguntaActual);
-/*
             if (_preguntaActual.getTipo_pregunta_id().equals("2")){
                 RenderPreguntaOpcionMultiple(_preguntaActual);
             }else if(_preguntaActual.getTipo_pregunta_id().equals("3")){
                 RenderPreguntaVF(_preguntaActual);
             }else if(_preguntaActual.getTipo_pregunta_id().equals("4")){
                 RenderPreguntaMejorOpcion(_preguntaActual);
-            }*/
+            }
         }
     }
 
@@ -217,9 +227,6 @@ public class JugarActivity extends AppCompatActivity {
         verdad.setVisibility(View.VISIBLE);
         falso.setVisibility(View.VISIBLE);
 
-        //System.out.println(pregunta.getRespuestas().get(0).getRespuesta()+"\n");
-        //System.out.println(pregunta.getRespuestas().get(0).getRetroalimentacion()+"\n");
-
         verdad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,9 +237,11 @@ public class JugarActivity extends AppCompatActivity {
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("Si")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "1";
+                    buena.start();
+                    c_respuestas+=1;
                     Toast.makeText(getApplicationContext(),"Respuesta correcta", Toast.LENGTH_LONG).show();
                 }else{
-                   // Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    error.start();
                     respuestas = "0";
                     retro=pregunta.getRespuestas().get(0).getRetroalimentacion();
                     showCustomDialog(retro);
@@ -257,10 +266,12 @@ public class JugarActivity extends AppCompatActivity {
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("No")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
                     respuestas = "0";
+                    buena.start();
+                    c_respuestas+=1;
                     Toast.makeText(getApplicationContext(),"Respuesta Correcta", Toast.LENGTH_LONG).show();
                 }else{
                     respuestas = "1";
-                    //Toast.makeText(getApplicationContext(),"INCORRECTOOOOOOO", Toast.LENGTH_LONG).show();
+                    error.start();
                     retro= pregunta.getRespuestas().get(0).getRetroalimentacion();
                     showCustomDialog(retro);
                 }
@@ -306,8 +317,6 @@ public class JugarActivity extends AppCompatActivity {
     private void RenderPreguntaOpcionMultiple(Preguntas pregunta) {
         LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-
 
         for(Respuestas respuesta : pregunta.getRespuestas()){
             CheckBox newCheck = new CheckBox(getApplicationContext());

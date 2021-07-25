@@ -19,6 +19,9 @@ public interface ApInterface {
     @GET("api.php?ep=login")
     Call<Estudiante> getEstudianteLogin(@Query("u") String u, @Query("p") String p);
 
+    @GET("api.php?ep=registrocheck")
+    Call<Boolean> getEstudianteEmail(@Query("u") String u);
+
     @GET("api.php?ep=juegos")
     Call<List<Juego>> getAllJuegos();
 

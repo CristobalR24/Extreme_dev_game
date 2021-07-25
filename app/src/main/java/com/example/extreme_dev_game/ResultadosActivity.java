@@ -3,6 +3,7 @@ package com.example.extreme_dev_game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -22,10 +23,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ResultadosActivity extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
 
-    TextView nivel,juego,jugador,fecha,puntaje,partida;
+    TextView nivel,juego,jugador,fecha,puntaje,partida,correctas;
 
     List<Partida> _partidas = new ArrayList<>();
+    int cantidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,11 @@ public class ResultadosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
 
         int partida = getIntent().getIntExtra("Partida",0);
+        cantidad = getIntent().getIntExtra("Cantidad",0);
+
+        //mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensound_sweet_rf);
+        //mediaPlayer.start();
+       // mediaPlayer.setLooping(true); //musica en loop
 
         InicializarControles();
         LoadListView(partida);
@@ -41,6 +49,21 @@ public class ResultadosActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() { /*no hacer nada*/}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer=MediaPlayer.create(getApplicationContext(),R.raw.bensound_sweet_rf);
+        mediaPlayer.setLooping(true); //musica en loop
+        mediaPlayer.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mediaPlayer.stop();
+        mediaPlayer.release();
+    }
 
     private void GuardarPartidaApi(List<Partida> partidas) {
         PartidaRequest request = new PartidaRequest();
@@ -75,15 +98,13 @@ public class ResultadosActivity extends AppCompatActivity {
 
     }
 
-    public void RegresarJuegos(View v){
-        startActivity(new Intent(getApplicationContext(),SeleccionNivelActivity.class));
-    }
 
     private void MapearCampos() {
         nivel.setText("Nivel: "+_partidas.get(0).getNivel());
         juego.setText("Juego: "+_partidas.get(0).getJuego());
         jugador.setText("Jugador: "+_partidas.get(0).getJugador());
         fecha.setText("Fecha: "+_partidas.get(0).getFecha());
+        correctas.setText("Respuestas correctas: "+cantidad+"/10");
         puntaje.setText("Puntaje: "+Integer.toString(ObtenerPuntaje(_partidas)));
         partida.setText("Partida: "+Integer.toString(_partidas.get(0).getPartida()));
     }
@@ -110,6 +131,7 @@ public class ResultadosActivity extends AppCompatActivity {
         fecha = (TextView)findViewById(R.id.txtFecha);
         puntaje = (TextView)findViewById(R.id.txtPuntos);
         partida = (TextView)findViewById(R.id.txtPartida);
+        correctas = (TextView)findViewById(R.id.txtAcertadas);
     }
 
     public void RegresarSeleccion(View view) {

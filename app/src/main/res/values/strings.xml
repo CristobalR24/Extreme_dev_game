@@ -6,6 +6,9 @@
         segun la cantidad de puntos que ganes.</string>
     <integer name="dbVersion">1</integer>
 
+
+
+
     <string name="leccion1_1">La programación extrema o eXtreme Programming (en adelante, XP) es una metodología de desarrollo de la ingeniería de software formulada por Kent Beck, autor
         del primer libro sobre la materia, Extreme Programming Explained: Embrace Change (1999).</string>
     <string name="leccion1_2"> El objetivo principal de la XP es la satisfacción del cliente. Se le trata de dar al
@@ -13,15 +16,23 @@ cliente lo que quiere y cuando quiere. Por tanto, se debe responder rápidamente
 las necesidades del cliente, aunque realice cambios en fases avanzadas del
 proyecto.</string>
     <string name="leccion1_3"><br>Algunas características de la metodología xp son:\n\n</br>
-       <br>•Se considera al equipo de proyecto como el principal factor de éxito del
-           proyecto\n</br>
+       <br>•Se considera al equipo de proyecto como el principal factor de éxito del proyecto\n</br>
         <br>•Software que funciona por encima de una buena documentación.\n</br>
         <br>•Interacción constante entre el cliente y el equipo de desarrollo.\n</br>
         <br>•Planificación flexible y abierta.\n</br>
         <br>•Refactoriza el diseño(mejora y modifica la estructura y codificación de códigos ya creados sin alterar su funcionalidad).\n</br>
         <br>•Rápida respuesta a cambios</br>
      </string>
-    <string name="leccion1_4"></string>
+    <string name="leccion1_4">
+        <br>XP define un conjunto de valores que establecen el fundamento para todo trabajo realizado como parte de XP, estos valores son:\n\n</br>
+        <br>•Comunicación: La XP ayuda mediante sus prácticas a la comunicación entre los integrantes del grupo de trabajo: jefes de proyecto, clientes y desarrolladores.\n</br>
+        <br>•Sencillez: Los programas deben ser los más sencillos posibles y tener la funcionalidad necesaria que se indican en los requisitos.\n</br>
+        <br>•Retroalimentación: Las pruebas que se le realizan al software nos mantienen informados del grado de fiabilidad del sistema.\n</br>
+        <br>•Valentía: Asumir retos, ser valientes ante los problemas y afrontarlos. El intentar mejorar algo que ya funciona.\n</br>
+        <br>•Respeto: Respeto es tanto por el trabajo de los demás como por el trabajo de uno mismo, por ejemplo, los desarrolladores nunca deben subir cambios que impidan la compilación de la versión.\n</br>
+
+    </string>
+
     <string name="preguntas">Si las preguntas no cargan asegurate de tener una conexión activa a internet.</string>
     <string name="privacidad"> Todos los datos están protegidos en la base de datos de los administradores del sistema.</string>
     <string name="ranking"> Para ganar más puntos debes responder rápidamente las preguntas que se te formulan en cada nivel y así tendras una mejor posición.</string>

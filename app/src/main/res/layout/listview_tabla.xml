@@ -94,6 +94,7 @@
         android:textSize="15dp"
         android:padding="10dp"
         android:text="Puntaje"/>
+
     </LinearLayout>
 
 

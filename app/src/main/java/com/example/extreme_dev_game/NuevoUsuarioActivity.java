@@ -2,7 +2,9 @@ package com.example.extreme_dev_game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -12,9 +14,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.extreme_dev_game.entidades.Estudiante;
 import com.example.extreme_dev_game.R;
+import com.example.extreme_dev_game.entidades.Usuarios;
 import com.example.extreme_dev_game.responses.Facultad;
 import com.example.extreme_dev_game.services.apiservice;
 
@@ -31,8 +35,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     Spinner codigo_grupo, year;
 
     List<Facultad> _facultades;
-    List<String> _years;
-
+    List<String> _years = new ArrayList<>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +86,10 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     }
 
     private void ObtenerYears(){
-        _years=Arrays.asList("1","2","3","4");
+        //_years=Arrays.asList("1","2","3","4");
+        for (int i = 1; i <= 100; i++) {
+            _years.add(Integer.toString(i));
+        }
     }
 
     public void Registrar(View view){
@@ -91,7 +97,8 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             Estudiante estudiante = new Estudiante();
             estudiante.setNombre_completo(nombre_completo.getText().toString());
             estudiante.setCedula(cedula.getText().toString());
-            estudiante.setEdad("20");
+            //estudiante.setEdad("20");
+            estudiante.setEdad(year.getSelectedItem().toString());
             estudiante.setEmail(correo.getText().toString());
             estudiante.setPassword(contra.getText().toString());
 
@@ -104,26 +111,58 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             }
             estudiante.setFacultad(facultadId);
 
-            Call<Integer> response = apiservice.getApiService().postRegistrarEstudiante(estudiante);
-            response.enqueue(new Callback<Integer>() {
-                @Override
-                public void onResponse(Call<Integer> call, Response<Integer> response) {
-                    if (response.isSuccessful()){
-                        int x = 1;
-                    }else{
+            if(!TextUtils.isEmpty(estudiante.getNombre_completo()) && !TextUtils.isEmpty(estudiante.getCedula()) && !TextUtils.isEmpty(estudiante.getEdad()) && !TextUtils.isEmpty(estudiante.getFacultad()) && !TextUtils.isEmpty(estudiante.getEmail()) && !TextUtils.isEmpty(estudiante.getPassword()))
+            {
+                Call<Boolean> response = apiservice.getApiService().getEstudianteEmail(estudiante.getEmail());
+                response.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if (response.isSuccessful()){
+                            Boolean existe = response.body();
+                            if (!existe){
+                                Call<Integer> resp = apiservice.getApiService().postRegistrarEstudiante(estudiante);
+                                resp.enqueue(new Callback<Integer>() {
+                                    @Override
+                                    public void onResponse(Call<Integer> call, Response<Integer> response) {
+                                        if (response.isSuccessful()) {
+                                            UsuarioInsertado();
+                                        } else {
+                                            int x = 1;
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Integer> call, Throwable t) {
+                                        int x = 1;
+                                    }
+                                });
+
+                            }
+                            else{Toast.makeText(getApplicationContext(),"Este correo ya esta registrado",Toast.LENGTH_LONG).show();}
+                        }else {
+                            Toast.makeText(getApplicationContext(),"error en el servidor",Toast.LENGTH_LONG).show();
+                            int x = 1;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
                         int x = 1;
                     }
-                }
+                });
 
-                @Override
-                public void onFailure(Call<Integer> call, Throwable t) {
-                    int x = 1;
-                }
-            });
+            }
+            else
+                Toast.makeText(this.getApplicationContext(),"Debe llenar todos los campos",Toast.LENGTH_LONG).show();
 
         }catch (Exception e){
             int x= 1;
         }
+    }
+
+    public void UsuarioInsertado(){
+        Toast.makeText(this.getApplicationContext(),"Usuario insertado",Toast.LENGTH_LONG).show();
+        finish();
     }
 
     public void SalirNuevoUser(View view) {

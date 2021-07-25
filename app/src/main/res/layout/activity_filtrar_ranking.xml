@@ -1,9 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FiltrarRankingActivity">
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:text="Regresar"
+                android:textColor="#ffffff"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                android:onClick="RegresarRanking" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:layout_width="370dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/subpantalla3">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bungeeinline"
+                    android:text="Filtro por cédula"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:text="Ingrese la cédula a filtrar"/>
+
+            <EditText
+                android:id="@+id/CedulaBuscada"
+                android:background="@drawable/bordes"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cabin"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="0-000-0000"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+            <TextView
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/bungeeinline"
+                android:text="Filtro por grupo"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin"
+                android:textSize="20sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:text="Ingrese el grupo a filtrar"/>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/grupobuscado"
+                android:background="@drawable/bordes"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cabin"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="0-000-0000"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+
+            <Button
+                android:id="@+id/retro_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aceptar"
+                android:layout_marginTop="30dp"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:onClick="Filtrar"
+                android:background="@drawable/boton"/>
+
+
+            </LinearLayout>
+    </LinearLayout>
+</ScrollView>

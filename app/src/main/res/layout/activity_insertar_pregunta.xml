@@ -4,6 +4,225 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context=".InsertarPreguntaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:text="Regresar"
+                android:textColor="#ffffff"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/boton3"
+                android:fontFamily="@font/cabin"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:fontFamily="@font/bungeeinline"
+            android:text="Insertar pregunta"
+            android:textAlignment="center"
+            android:textColor="#fc7121"
+            android:textSize="40dp" />
+
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/subpantalla3"
+            android:orientation="vertical">
+
+            <!-- Insertar pregunta -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Inserte la pregunta: "
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtInsertPreg"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordes"
+                android:fontFamily="@font/cabin"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <!-- Inserte respuesta correcta -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Inserte respuesta correcta:"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtRespCorrect"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordes"
+                android:fontFamily="@font/cabin"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <!-- Inserte respuesta incorrecta 1 -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Inserte respuesta incorrecta:"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtRespInCorrect1"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordes"
+                android:fontFamily="@font/cabin"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <!-- Inserte respuesta incorrecta 2-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Inserte respuesta incorrecta:"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtRespInCorrect2"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordes"
+                android:fontFamily="@font/cabin"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <!-- Inserte respuesta incorrecta 3 -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Inserte respuesta incorrecta:"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtRespInCorrect3"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordes"
+                android:fontFamily="@font/cabin"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="10sp"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/reestablecer"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:background="@drawable/boton"
+                    android:fontFamily="@font/cabin"
+                    android:padding="15dp"
+                    android:text="Reestablecer"
+                    android:textColor="#ffffff" />
+
+
+                <Button
+                    android:id="@+id/aceptar"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/boton"
+                    android:fontFamily="@font/cabin"
+                    android:padding="15dp"
+                    android:text="Aceptar"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

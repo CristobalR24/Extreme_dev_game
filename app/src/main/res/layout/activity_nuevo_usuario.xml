@@ -178,7 +178,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin"
-                            android:text="Cod. grupo"
+                            android:text="Facultad"
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="16dp" />
@@ -202,7 +202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin"
-                            android:text="Año"
+                            android:text="Edad"
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="16dp" />
