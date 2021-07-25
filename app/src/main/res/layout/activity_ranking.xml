@@ -57,6 +57,7 @@
                 android:background="@drawable/boton3"
                 android:fontFamily="@font/cabin"
                 android:textAllCaps="false"
+                android:onClick="FiltrarCedula"
                 android:text="Filtrar por cédula" />
 
 
