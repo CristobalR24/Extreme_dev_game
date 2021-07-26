@@ -40,6 +40,9 @@ public interface ApInterface {
     @GET("api.php?ep=posiciones")
     Call<List<Tabla>> getAllTable();
 
+    @GET("api.php?ep=PROE_posiciones")
+    Call<List<Tabla>> proe_getAllTable();
+
     @GET("api.php?ep=filtro1")
     Call<List<Tabla>> getAllTableCed(@Query("c") String c);
 }

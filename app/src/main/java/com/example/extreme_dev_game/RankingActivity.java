@@ -58,7 +58,7 @@ public class RankingActivity extends AppCompatActivity {
     }
 
     private void LoadListView() {
-        Call<List<Tabla>> response = apiservice.getApiService().getAllTable();
+        Call<List<Tabla>> response = apiservice.getApiService().proe_getAllTable();
         response.enqueue(new Callback<List<Tabla>>() {
             @Override
             public void onResponse(Call<List<Tabla>> call, Response<List<Tabla>> response) {
