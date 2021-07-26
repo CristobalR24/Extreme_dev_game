@@ -54,6 +54,22 @@
     function ObtenerPosiciones(){
       $con = new Conexion();
 
+      $query = "CALL ObtenerTablaPosicion()";
+      $allTabla = mysqli_query($con->Conectar(),$query);
+      $countRows = mysqli_num_rows($allTabla);
+      if($countRows > 0){
+        $datos = array();
+        while($row = mysqli_fetch_assoc($allTabla)){
+            $datos[] = $row;
+        }
+        return $datos;
+      }
+      return [];
+    }
+
+    function PROE_ObtenerPosiciones(){
+      $con = new Conexion();
+
       $query = "CALL PROE_Ranking()";
       $allTabla = mysqli_query($con->Conectar(),$query);
       $countRows = mysqli_num_rows($allTabla);
@@ -66,6 +82,7 @@
       }
       return [];
     }
+
 
     function ObtenerPosicionesC($c){
       $con = new Conexion();
