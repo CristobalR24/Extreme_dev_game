@@ -33,6 +33,9 @@
   }else if ($ep == 'posiciones'){
     AllPositions();
   }
+  else if($ep == 'PROE_posiciones'){
+    PROE_AllPositions();
+  }
   else if ($ep == 'filtro1'){
     $ced = $_GET['c'];
     AllPositionsCed($ced);
@@ -110,9 +113,15 @@
     }
   }
 
-  function AllPositions(){
+function AllPositions(){
     $juegosDb = new ProcesosJuegos();
     $pos = $juegosDb->ObtenerPosiciones();
+    print json_encode($pos);
+  }
+
+  function PROE_AllPositions(){
+    $juegosDb = new ProcesosJuegos();
+    $pos = $juegosDb->PROE_ObtenerPosiciones();
     print json_encode($pos);
   }
 
