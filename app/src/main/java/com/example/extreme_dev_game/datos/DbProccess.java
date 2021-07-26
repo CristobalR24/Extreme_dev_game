@@ -162,14 +162,4 @@ public class DbProccess {
         return null;
     }
 
-    public void CerrarSession(){
-        try{
-            SQLiteDatabase db = _helper.getWritableDatabase();
-            if (db != null){
-                db.delete("session",null,null);
-                db.close();
-            }
-        }
-        catch (Exception x){}
-    }
 }

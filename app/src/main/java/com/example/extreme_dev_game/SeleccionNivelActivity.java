@@ -15,8 +15,6 @@ public class SeleccionNivelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion_nivel);
-        //mediaPlayer= MediaPlayer.create(getApplicationContext(),R.raw.bensound_dreams_rf);
-       // mediaPlayer.start();
 
         Intent i = getIntent();
         _user=i.getStringExtra("usuario");

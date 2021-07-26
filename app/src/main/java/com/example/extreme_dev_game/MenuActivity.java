@@ -15,8 +15,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        //mediaPlayer=MediaPlayer.create(getApplicationContext(),R.raw.bensound_dreams_rf);
-        //mediaPlayer.start();
 
         Intent i = getIntent();
         _user=i.getStringExtra("usuario");
@@ -39,13 +37,13 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public void SalirJuego(View view) {
-        //mediaPlayer.release();
+
         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
         finish();
     }
 
     public void IraJugar(View view) {
-        //mediaPlayer.release();
+
         Intent i = new Intent(getApplicationContext(),SeleccionNivelActivity.class);
         i.putExtra("usuario",_user);
         startActivity(i);

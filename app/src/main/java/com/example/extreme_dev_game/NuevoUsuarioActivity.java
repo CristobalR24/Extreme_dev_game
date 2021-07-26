@@ -56,6 +56,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     }
 
     private void LoadSpinner() {
+        // en este proceso obtenemos las facultades desde el api y las guardamos en un spinner
         Call<List<Facultad>> response = apiservice.getApiService().getAllFacultades();
         response.enqueue(new Callback<List<Facultad>>() {
             @Override
@@ -66,12 +67,12 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                     for(Facultad facultad : _facultades){
                         facultadesListString.add(facultad.getFacultad());
                     }
-
+                    //spinner de facultades
                     ArrayAdapter<String> adapter =
                             new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_item,facultadesListString);
 
                     codigo_grupo.setAdapter(adapter);
-
+                    //spinner de edad
                     ArrayAdapter<String> adapter2 =
                             new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_item,_years);
 
@@ -97,20 +98,21 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             Estudiante estudiante = new Estudiante();
             estudiante.setNombre_completo(nombre_completo.getText().toString());
             estudiante.setCedula(cedula.getText().toString());
-            //estudiante.setEdad("20");
+
             estudiante.setEdad(year.getSelectedItem().toString());
             estudiante.setEmail(correo.getText().toString());
             estudiante.setPassword(contra.getText().toString());
 
             String selectedFac = codigo_grupo.getSelectedItem().toString();
             String facultadId = "";
+            //aqui obtenemos a partir de la facultad seleccionada su ID
             for(Facultad facultad : _facultades){
                 if (facultad.getFacultad().equals(selectedFac)){
                     facultadId = facultad.getId();
                 }
             }
             estudiante.setFacultad(facultadId);
-
+            //verifica que el usuario haya llenado todos los campos
             if(!TextUtils.isEmpty(estudiante.getNombre_completo()) && !TextUtils.isEmpty(estudiante.getCedula()) && !TextUtils.isEmpty(estudiante.getEdad()) && !TextUtils.isEmpty(estudiante.getFacultad()) && !TextUtils.isEmpty(estudiante.getEmail()) && !TextUtils.isEmpty(estudiante.getPassword()))
             {
                 Call<Boolean> response = apiservice.getApiService().getEstudianteEmail(estudiante.getEmail());
@@ -119,30 +121,26 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         if (response.isSuccessful()){
                             Boolean existe = response.body();
-                            if (!existe){
+                            if (!existe){ //si el correo no existe(esta disponible) crea el usuario
                                 Call<Integer> resp = apiservice.getApiService().postRegistrarEstudiante(estudiante);
                                 resp.enqueue(new Callback<Integer>() {
                                     @Override
                                     public void onResponse(Call<Integer> call, Response<Integer> response) {
                                         if (response.isSuccessful()) {
                                             UsuarioInsertado();
-                                        } else {
-                                            int x = 1;
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(Call<Integer> call, Throwable t) {
-                                        int x = 1;
+
                                     }
                                 });
 
                             }
                             else{Toast.makeText(getApplicationContext(),"Este correo ya esta registrado",Toast.LENGTH_LONG).show();}
-                        }else {
+                        }else
                             Toast.makeText(getApplicationContext(),"error en el servidor",Toast.LENGTH_LONG).show();
-                            int x = 1;
-                        }
                     }
 
                     @Override
@@ -156,7 +154,6 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 Toast.makeText(this.getApplicationContext(),"Debe llenar todos los campos",Toast.LENGTH_LONG).show();
 
         }catch (Exception e){
-            int x= 1;
         }
     }
 

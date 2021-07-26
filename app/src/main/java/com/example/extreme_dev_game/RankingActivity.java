@@ -35,13 +35,14 @@ public class RankingActivity extends AppCompatActivity {
         int num = i.getIntExtra("num",0);
         String ced = i.getStringExtra("Cedula");
 
+        //verifica si se esta aplicando un filtro, FiltrarRankingActivity llama a esta actividad
         if(num>0){
          LoadFiltro(ced);
         }
         else
          LoadListView();
     }
-
+    //lista de filtro, llama a la api que a su vez llama al procedimiento para filtrar resultados por cédula
     private void LoadFiltro(String ced) {
         Call<List<Tabla>> response = apiservice.getApiService().getAllTableCed(ced);
         response.enqueue(new Callback<List<Tabla>>() {
@@ -56,7 +57,7 @@ public class RankingActivity extends AppCompatActivity {
             }
         });
     }
-
+    //carga la lista con los puntajes maximos de todos los usuarios de nuestro
     private void LoadListView() {
         Call<List<Tabla>> response = apiservice.getApiService().proe_getAllTable();
         response.enqueue(new Callback<List<Tabla>>() {

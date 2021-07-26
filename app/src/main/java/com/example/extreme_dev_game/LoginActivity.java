@@ -21,16 +21,12 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     EditText nombre,contra;
     Button iniciar,salir,olvido,crear_usuario;
-    DbProccess _db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         this.InicializarControles();
-       // _db = new DbProccess(getApplicationContext());
-       //   ValidarSession();
-
     }
 
     public void InicializarControles(){
@@ -42,18 +38,12 @@ public class LoginActivity extends AppCompatActivity {
         crear_usuario=(Button)findViewById(R.id.nuevo);
     }
 
-    private void ValidarSession() {
-        Usuarios user = _db.ObtenerUsuarioSession();
-        if (user != null){
-            startActivity(new Intent(getApplicationContext(),JugarActivity.class));
-        }
-    }
-
     public void IniciarSession(View v){
-        try {
+        try {  //obtenemos el nombre de usuario y contraseña
             String user = nombre.getText().toString();
             String pass = contra.getText().toString();
 
+            //llamado a la interface ApInterface donde se obtiene todos los metodos definidos en la api
             Call<Estudiante> response = apiservice.getApiService().getEstudianteLogin(user,pass);
             response.enqueue(new Callback<Estudiante>() {
                 @Override
@@ -61,7 +51,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()){
                         Estudiante estudiante = response.body();
                         if (estudiante != null){
-
+                    /*los datos recibidos del api los guardamos en un objeto
+                      Usuario para acceder a sus datos, en este caso necesitamos el nombre del usuario*/
                             Usuarios user =
                                     new Usuarios(
                                             Integer.parseInt(estudiante.getId()),
@@ -69,25 +60,18 @@ public class LoginActivity extends AppCompatActivity {
                                             "",
                                             estudiante.getNombre_completo()
                                     );
-
-                           // _db.GuardarSessionUsuario(user);
-
-                            //Toast.makeText(getApplicationContext(),"Inicio de Sesion Exitoso",Toast.LENGTH_LONG).show();
-                            //startActivity(new Intent(getApplicationContext(),IntroduccionActivity.class));
                             Intent i = new Intent(getApplicationContext(),IntroduccionActivity.class);
                             i.putExtra("usuario",user.getNombre());
                             startActivity(i);
                         }
                         else{Toast.makeText(getApplicationContext(),"Correo o contraseñas incorrectos",Toast.LENGTH_LONG).show();}
-                    }else {
+                    }else
                         Toast.makeText(getApplicationContext(),"error en el servidor",Toast.LENGTH_LONG).show();
-                        int x = 1;
-                    }
                 }
 
                 @Override
                 public void onFailure(Call<Estudiante> call, Throwable t) {
-                    int x = 1;
+
                 }
             });
         }catch (Exception e){

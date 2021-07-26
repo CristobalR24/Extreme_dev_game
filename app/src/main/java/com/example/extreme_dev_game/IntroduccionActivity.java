@@ -26,7 +26,6 @@ public class IntroduccionActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),MenuActivity.class);
         i.putExtra("usuario",_user);
         startActivity(i);
-        //startActivity(new Intent(getApplicationContext(),MenuActivity.class));
         finish();
     }
 }

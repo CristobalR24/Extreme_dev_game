@@ -72,7 +72,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6553-1715"/>
+                android:text="+507 6553-1719"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6264-7923"/>
+                android:text="+507 6264-7925"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6319-4033"/>
+                android:text="+507 6319-4032"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6504-8900"/>
+                android:text="+507 6504-8911"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6883-5947"/>
+                android:text="+507 6883-5941"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -262,7 +262,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="mathewscastillo40@gmail.com"/>
+                android:text="cristobalr24000@gmail.com"/>
             <View android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
@@ -288,7 +288,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6637-9019"/>
+                android:text="+507 6637-9016"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -298,7 +298,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="---@gmail.com"/>
+                android:text="AlbenizV@gmail.com"/>
             <View android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
@@ -324,7 +324,7 @@
                 android:layout_marginRight="15dp"
                 android:textColor="#000"
                 android:textAlignment="center"
-                android:text="+507 6006-9348"/>
+                android:text="+507 6006-9340"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

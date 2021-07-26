@@ -71,18 +71,13 @@ public class JugarActivity extends AppCompatActivity {
         _db = new DbProccess(getApplicationContext());
 
         Intent i = getIntent();
+        //obtenemos el nombre del jugador y el nivel seleccionado desde la seleccion de nivel
         _jugador=i.getStringExtra("usuario");
         _nivel=i.getIntExtra("nivel",0);
 
-        //mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.summer_bensound_rf);
         buena = MediaPlayer.create(getApplicationContext(),R.raw.bonus_collect);
         error = MediaPlayer.create(getApplicationContext(),R.raw.answer_fail);
 
-        //mediaPlayer.start();
-        //mediaPlayer.setLooping(true); //musica en loop
-
-        /*_juego = i.getStringExtra("Juego");
-        _juegoId = i.getIntExtra("JuegoID",0);*/
         _numPartida = _db.ObtenerSiguientePartida("Extreme dev game");
 
         InicializarControles();
@@ -112,7 +107,7 @@ public class JugarActivity extends AppCompatActivity {
             public void onResponse(Call<List<Preguntas>> call, Response<List<Preguntas>> response) {
                 if (response.isSuccessful()){
                     _preguntas = response.body();
-                    Collections.shuffle(_preguntas);
+                    Collections.shuffle(_preguntas); //mezclamos el contenido de la lista para añadir aleatoriedad
                     if (_preguntas.size() > 0){
                         nivel.setText(_preguntas.get(0).getNivel());
                         _preguntaActual = _preguntas.get(0);
@@ -155,7 +150,7 @@ public class JugarActivity extends AppCompatActivity {
     private void RenderPregunta(Preguntas preguntaAnterior){
         int indiceActual = _preguntas.indexOf(preguntaAnterior);
 
-        if(indiceActual == 9){ //si se acabaron las preguntas 0 a 9
+        if(indiceActual == 9){ //si se acabaron las preguntas 0 a 9 (10 preguntas)
             Intent i = new Intent(getApplicationContext(),ResultadosActivity.class);
             i.putExtra("Cantidad",c_respuestas);
             i.putExtra("Partida",_numPartida);
@@ -166,6 +161,7 @@ public class JugarActivity extends AppCompatActivity {
             pregunta.setText(_preguntaActual.getPregunta());
             tipo.setText(_preguntaActual.getTipo());
 
+            //obtenemos la estructura de la pregunta a partir del tipo de pregunta actual
             if (_preguntaActual.getTipo_pregunta_id().equals("2")){
                 RenderPreguntaOpcionMultiple(_preguntaActual);
             }else if(_preguntaActual.getTipo_pregunta_id().equals("3")){
@@ -233,16 +229,16 @@ public class JugarActivity extends AppCompatActivity {
                 int puntaje = 0;
                 String respuestas = "";
 
-
+                //verifica si la pregunta es correcta o no
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("Si")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
-                    respuestas = "1";
+                    respuestas = "Si";
                     buena.start();
                     c_respuestas+=1;
                     Toast.makeText(getApplicationContext(),"Respuesta correcta", Toast.LENGTH_LONG).show();
                 }else{
                     error.start();
-                    respuestas = "0";
+                    respuestas = "No";
                     retro=pregunta.getRespuestas().get(0).getRetroalimentacion();
                     showCustomDialog(retro);
 
@@ -262,15 +258,15 @@ public class JugarActivity extends AppCompatActivity {
 
                 int puntaje = 0;
                 String respuestas = "";
-
+                //verifica si la pregunta es correcta o no
                 if (pregunta.getRespuestas().get(0).getRespuesta().equals("No")){
                     puntaje = Integer.parseInt(pregunta.getRespuestas().get(0).getPuntaje());
-                    respuestas = "0";
+                    respuestas = "No";
                     buena.start();
                     c_respuestas+=1;
                     Toast.makeText(getApplicationContext(),"Respuesta Correcta", Toast.LENGTH_LONG).show();
                 }else{
-                    respuestas = "1";
+                    respuestas = "Si";
                     error.start();
                     retro= pregunta.getRespuestas().get(0).getRetroalimentacion();
                     showCustomDialog(retro);
@@ -381,7 +377,6 @@ public class JugarActivity extends AppCompatActivity {
             respuesta.setFecha(df.format(new Date()));
             respuesta.setHora(tf.format(new Date()));
 
-            int d = 1;
             _selectedCheckboxs.clear();
             _db.InsentarRespuestaPartida(respuesta,_numPartida);
         }catch (Exception e){

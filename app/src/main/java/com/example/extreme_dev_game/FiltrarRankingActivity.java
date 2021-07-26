@@ -28,6 +28,7 @@ public class FiltrarRankingActivity extends AppCompatActivity {
     }
 
     public void Filtrar(View view) {
+        //obtiene el indicador del filtro(1) y la cedula puesta en el campo
         if(!TextUtils.isEmpty(arg1.getText().toString())){
             Intent i = new Intent(getApplicationContext(),RankingActivity.class);
             i.putExtra("num",1);

@@ -38,10 +38,6 @@ public class ResultadosActivity extends AppCompatActivity {
         int partida = getIntent().getIntExtra("Partida",0);
         cantidad = getIntent().getIntExtra("Cantidad",0);
 
-        //mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensound_sweet_rf);
-        //mediaPlayer.start();
-       // mediaPlayer.setLooping(true); //musica en loop
-
         InicializarControles();
         LoadListView(partida);
         MapearCampos();
@@ -86,7 +82,7 @@ public class ResultadosActivity extends AppCompatActivity {
 
                     }
                 }else{
-                    int x = 1;
+
                 }
             }
 
@@ -98,7 +94,6 @@ public class ResultadosActivity extends AppCompatActivity {
 
     }
 
-
     private void MapearCampos() {
         nivel.setText("Nivel: "+_partidas.get(0).getNivel());
         juego.setText("Juego: "+_partidas.get(0).getJuego());
@@ -109,6 +104,7 @@ public class ResultadosActivity extends AppCompatActivity {
         partida.setText("Partida: "+Integer.toString(_partidas.get(0).getPartida()));
     }
 
+    //obtenemos el puntaje total
     private int ObtenerPuntaje(List<Partida> partidas){
         int puntaje = 0;
         for (Partida part : partidas){
