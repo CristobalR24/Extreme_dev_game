@@ -29,6 +29,28 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_marginTop="20px"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_gravity="left"
+                android:src="@drawable/logoutp"
+                />
+
+
+            <ImageView
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_marginLeft="190dp"
+                android:src="@drawable/logo_fisc" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,8 +58,8 @@
             android:fontFamily="@font/bungeeinline"
             android:text="XTREME DEV GAME"
             android:textColor="#fc7121"
-            android:textSize="60dp"
-
+            android:textSize="40dp"
+            android:layout_gravity="center"
             />
 
         <LinearLayout
